@@ -1,42 +1,28 @@
-#
-# Be sure to run `pod lib lint IFreePlaySDK_SDK.podspec' to ensure this is a
-# valid spec before submitting.
-#
-# Any lines starting with a # are optional, but their use is encouraged
-# To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html
-#
 
 Pod::Spec.new do |s|
   s.name             = 'IFreePlaySDK_SDK'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of IFreePlaySDK_SDK.'
-
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
+  s.version          = '1.1.0'
+  s.summary          = '对封装的IFreePlaySDK做简单的二次封装，目的是为了隐藏掉.m'
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+       TODO: 隐藏掉IFreePlaySDK.framework的.m文件
                        DESC
 
   s.homepage         = 'https://github.com/zhengyachao/IFreePlaySDK_SDK'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
+
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'zhengyachao' => '15038253754@163.com' }
-  s.source           = { :git => 'https://github.com/zhengyachao/IFreePlaySDK_SDK.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.source           = { :git => 'https://github.com/zhengyachao/IFreePlaySDK_SDK.git', :tag => '1.1.0' }
 
   s.ios.deployment_target = '8.0'
 
   s.source_files = 'IFreePlaySDK_SDK/Classes/**/*'
-  
-  # s.resource_bundles = {
-  #   'IFreePlaySDK_SDK' => ['IFreePlaySDK_SDK/Assets/*.png']
-  # }
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.public_header_files = 'IFreePlaySDK_SDK/Classes/**/*.h'
+
+  s.vendored_libraries = 'IFreePlaySDK_SDK/Classes/libIFreePlayLoginSDK.a'
+
+  s.libraries = 'c++', 'sqlite3', 'z'
+  s.frameworks = 'UIKit', 'Foundation', 'Security','CoreTelephony', 'SystemConfiguration','CFNetwork'
+
 end
